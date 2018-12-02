@@ -190,4 +190,6 @@ https://medium.com/differential/how-to-setup-push-notifications-in-react-native-
 
 ___________________________________________________________________________________________________
 Happy Coding
+---
+
 Divyanshu Kumar
