@@ -1,6 +1,29 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Picker, AppState } from 'react-native';
 import PushController from './PushController';
+import PushNotification from 'react-native-push-notification';
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#F5FCFF',
+    },
+    welcome: {
+      fontSize: 20,
+      textAlign: 'center',
+      margin: 10,
+    },
+    instructions: {
+      textAlign: 'center',
+      color: '#333333',
+      marginBottom: 5,
+    },
+    picker: {
+      width: 100,
+    },
+  });
+
 export default class App extends Component<Props> {
     constructor(props) {
         super(props);
@@ -38,30 +61,18 @@ export default class App extends Component<Props> {
     }
     
     handleAppStateChange(appState) {
-        if (appState === 'background') {
-           console.log("Hi, app in background", this.state.seconds);
+            if (appState === 'background') {
+                let date = new Date(Date.now() + (this.state.seconds * 1000));
+          
+                if (Platform.OS === 'ios') {
+                  date = date.toISOString();
+                }
+          
+                PushNotification.localNotificationSchedule({
+                  message: "My Notification Message",
+                  date,
+                  soundName: "rush"
+                });
         }
     }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  picker: {
-    width: 100,
-  },
-});
