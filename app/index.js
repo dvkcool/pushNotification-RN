@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Picker, AppState } from 'react-native';
-
+import PushController from './PushController';
 export default class App extends Component<Props> {
     constructor(props) {
         super(props);
@@ -25,6 +25,7 @@ export default class App extends Component<Props> {
                 <Picker.Item label="10" value={10} />
                 <Picker.Item label="15" value={15} />
                 </Picker>
+                <PushController/>
             </View>
         );
     }
