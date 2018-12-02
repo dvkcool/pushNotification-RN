@@ -4,6 +4,8 @@
 I was working on a project, and then I had this crazy idea of push notifications with custom sound. Now, first task was to implement a simple push notification and then add custom sound to it. 
 Then I thought of writing a guide for the same, so here it is: 
 
+### Important Note: 
+Push Notifications do not work well on iOS Simulator so for testing on iOS you will need actual iOS device
 
 # PART 1: Adding Simple push notification
 Steps Involved:
